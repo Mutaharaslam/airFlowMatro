@@ -1,7 +1,8 @@
 .invoice input, textarea{
-  border: 1px solid #FFF;
+  /* border: 1px solid #FFF; */
+  margin: 0 0 10px;
 }
-
+/* 
 .invoice .container input:hover, .container textarea:hover, 
 .invoice .table-striped > tbody > tr:nth-child(2n+1) > td input:hover,
 .invoice .container input:focus, .container textarea:focus, 
@@ -13,7 +14,7 @@
     background-color: #F9F9F9;
     border: 1px solid #F9F9F9;
 }
-
+ */
 
 
 @media print {
@@ -26,9 +27,9 @@
   padding:20px;
 }
 
-.invoice .infos input{
+/* .invoice .infos input{
   width: 300px;
-}
+} */
 
 .invoice .align-right input{
   text-align:right;

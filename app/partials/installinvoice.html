@@ -1,41 +1,41 @@
 <!-- Page Content -->
-    <div class="container">
-        <div loader working="loading" disable-background="true"></div>
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Metro Airflow Site Manager
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
+<div class="container">
+  <div loader working="loading" disable-background="true"></div>
+  <!-- Page Heading/Breadcrumbs -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Metro Airflow Site Manager
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
 
-        <!-- Content Row -->
-        <div class="row">
-            <!-- Sidebar Column -->
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="#/" class="list-group-item">Home</a>
-                    <a href="#/admin/invoice/installation" class="list-group-item">Create Service Invoice</a>
-                    <a href="#/admin/invoice/service" class="list-group-item">Create Installation Invoice</a>
-                    <a href="#/admin/invoice/manage" class="list-group-item">Manage Past Invoices</a>
-                    <a class="list-group-item" ng-click="logout()">Logout</a>
-                </div>
-            </div>
-            <!-- Content Column -->
-            <div class="col-md-9">
-                <div class="row">
-            <div class="col-lg-9">
-                <h1>Create
-                    <small>Service Invoice</small>
-                </h1>
-            </div>
+  <!-- Content Row -->
+  <div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="#/" class="list-group-item">Home</a>
+        <a href="#/admin/invoice/installation" class="list-group-item">Create Service Invoice</a>
+        <a href="#/admin/invoice/service" class="list-group-item">Create Installation Invoice</a>
+        <a href="#/admin/invoice/manage" class="list-group-item">Manage Past Invoices</a>
+        <a class="list-group-item" ng-click="logout()">Logout</a>
+      </div>
+    </div>
+    <!-- Content Column -->
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-lg-9">
+          <h1>Create
+            <small>Service Invoice</small>
+          </h1>
         </div>
+      </div>
 
-        <div class="row invoice">
-            <div class="col-sm-9">
-            <table class="table">
-                <!--
+      <div class="row invoice">
+        <div class="col-12">
+          <table class="table">
+            <!--
             <tr>
               <td align="center" style="background-color:#357EBD;color:#FFF" colspan="2">
                 INVOICE
@@ -60,105 +60,115 @@
           </table>
           <table class="table">
             <tr>
-              <td>
+              <td class="p-0">
                 <div class="infos">
-                  <div><strong><input type="text" ng-model="invoice.customer_info.name" placeholder="Enter Customer Name"/></strong></div>
-                  <div><input type="text" ng-model="invoice.customer_info.address" placeholder="Enter Customer Address"/></div>
-                  <div><input type="text" ng-model="invoice.customer_info.city" placeholder="Enter City"/></div>
-                  <div><input type="text" ng-model="invoice.customer_info.state" placeholder="Enter State"/></div>
-                  <div><input type="text" ng-model="invoice.customer_info.postal" placeholder="Customer Postal"/></div>
-                  <div><input type="text" ng-model="invoice.customer_info.phone" placeholder="Customer Phone"/></div>
-                  <div><input type="text" ng-model="invoice.customer_info.email" placeholder="Customer Email"/></div>
-                  <div><input type="text" ng-model="invoice.technician" placeholder="Technician"/></div>
-                  <div><input type="text" style="width:600px" ng-model="invoice.note" placeholder="Note"/></div>
-                  <div><input type="text" style="width:600px" ng-model="invoice.part" placeholder="Warranty Parts"/></div>
-                  <div><input type="text" style="width:600px" ng-model="invoice.labor" placeholder="Warranty Labor"/></div>
+                  <div><strong><input type="text" class="form-control" ng-model="invoice.customer_info.name"
+                        placeholder="Enter Customer Name" /></strong></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.address"
+                      placeholder="Enter Customer Address" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.city"
+                      placeholder="Enter City" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.state"
+                      placeholder="Enter State" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.postal"
+                      placeholder="Customer Postal" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.phone"
+                      placeholder="Customer Phone" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.customer_info.email"
+                      placeholder="Customer Email" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.technician" placeholder="Technician" />
+                  </div>
+                  <div><input type="text" class="form-control" ng-model="invoice.note"
+                      placeholder="Note" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.part"
+                      placeholder="Warranty Parts" /></div>
+                  <div><input type="text" class="form-control" ng-model="invoice.labor"
+                      placeholder="Warranty Labor" /></div>
                 </div>
               </td>
             </tr>
           </table>
-          <table class="table table-striped" align="center" >
-                <tr>
-                  <td align="center"  colspan="10">
-                    Unit Information
-                  </td>
-                </tr>
-              <tr>
-                  <th></th>
-                  <th>Make</th>
-                  <th>Model</th>
-                  <th>Serial</th>
-                  <th></th>
-         <!--         <th style="text-align:right;">Total</th> -->
-                  
-              </tr>
-              <tr ng-repeat="unit in invoice.units track by $index" colspan="10" >
-                  <td><a href ng-hide="printMode" ng-click="removeUnit(unit)" class="btn btn-danger">X</a></td>
-                  <td><input ng-model="unit.make" size="20" ng:required placeholder="Make"></td>
-                  <td><input ng-model="unit.model"  size="20" ng:required  placeholder="Model"></td>
-                  <td><input ng-model="unit.serial" ng:required  size="20" placeholder="Serial"></td>
-                  <td></td>
-             <!--     <td align="right">{{item.cost * item.qty | currency}}</td>-->
-                  
-              </tr>
-             <tr>
-                  <textarea ng-model="invoice.scopeofwork" placeholder="Scope Of Work" style="border-color: #DDDDDD;" name="paragraph_text" cols="78" rows="10"></textarea>
-             </tr>
-             <tr>
-                  <td colspan="4" align="right">
-                    Total:
-                  </td>
-                  <td align="right">
-                    <input ng-model="invoice.total"  size="10"  ng:required  placeholder="0.00">
-                  </td>
+          <table class="table table-striped">
+            <tr>
+              <td colspan="10">
+                Unit Information
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Serial</th>
+              <th></th>
+              <!--         <th style="text-align:right;">Total</th> -->
 
-             </tr>
-             <tr>
-                  <td colspan="4" align="right">
-                    Balance:
-                  </td>
-                  <td align="right">
-                    <input ng-model="invoice.balance"  size="10"  ng:required  placeholder="0.00">
-                  </td>
-             </tr>
-             <tr>
-                  <td colspan="4" align="right">
-                    Paid:
-                  </td>
-                  <td align="right">
-                    <input ng-model="invoice.paid"  size="10"  ng:required  placeholder="0.00">
-                  </td>
-              </tr>
+            </tr>
+            <tr ng-repeat="unit in invoice.units track by $index" colspan="10">
+              <td><a href ng-hide="printMode" ng-click="removeUnit(unit)" class="btn btn-danger">X</a></td>
+              <td><input ng-model="unit.make" size="20" ng:required placeholder="Make"></td>
+              <td><input ng-model="unit.model" size="20" ng:required placeholder="Model"></td>
+              <td><input ng-model="unit.serial" ng:required size="20" placeholder="Serial"></td>
+              <td></td>
+              <!--     <td align="right">{{item.cost * item.qty | currency}}</td>-->
+
+            </tr>
+            <tr>
+              <textarea class="form-control" ng-model="invoice.scopeofwork" placeholder="Scope Of Work" style="border-color: #DDDDDD;"
+                name="paragraph_text" cols="78" rows="10"></textarea>
+            </tr>
+            <tr>
+              <td colspan="4" align="right">
+                Total:
+              </td>
+              <td align="right">
+                <input ng-model="invoice.total" size="10" ng:required placeholder="0.00">
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="4" align="right">
+                Balance:
+              </td>
+              <td align="right">
+                <input ng-model="invoice.balance" size="10" ng:required placeholder="0.00">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" align="right">
+                Paid:
+              </td>
+              <td align="right">
+                <input ng-model="invoice.paid" size="10" ng:required placeholder="0.00">
+              </td>
+            </tr>
           </table>
           <div>
-            <a class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
-              <h4>Upload on file select</h4>
-              <button ngf-select="uploadFiles($files, $invalidFiles)" multiple
-                      accept="*/*" ngf-max-height="1000" ngf-max-size="1MB">
-                  Select Files</button>
-              <br><br>
-              Files:
-              <ul>
-                <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}}
-                  <span class="progress" ng-show="f.progress >= 0">
-                    <div style="width:{{f.progress}}%"  
-                        ng-bind="f.progress + '%'"></div>
-                  </span>
-                </li>
-                <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
-                </li> 
-                 </ul>
-              {{errorMsg}}
-            <a  class="btn btn-primary" ng-click="submit()">Submit</a>
+            <button class="btn btn-primary mb-3" ng-click="clearLocalStorage()">Reset</button>
+            <h4>Upload on file select</h4>
+            <button class="btn btn-primary" ngf-select="uploadFiles($files, $invalidFiles)" multiple accept="*/*" ngf-max-height="1000"
+              ngf-max-size="1MB">
+              Select Files</button>
+            <br><br>
+            Files:
+            <ul>
+              <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}}
+                <span class="progress" ng-show="f.progress >= 0">
+                  <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                </span>
+              </li>
+              <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+              </li>
+            </ul>
+            {{errorMsg}}
+            <button class="btn btn-primary" ng-click="submit()">Submit</button>
           </div>
-      </div>
         </div>
-        <!-- /.row -->
-        <!-- Contact Form -->
-        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    
+      </div>
+      <!-- /.row -->
+      <!-- Contact Form -->
+      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 
-        <hr>
+
+      <hr>
     </div>
     <!-- /.container -->
-
