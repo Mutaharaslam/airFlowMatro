@@ -1,0 +1,151 @@
+<!-- Page Content -->
+    <div class="container">
+        <div loader working="loading" disable-background="true"></div>
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Metro Airflow Site Manager
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#/" class="list-group-item">Home</a>
+                    <a href="#/admin/invoice/installation" class="list-group-item">Create Service Invoice</a>
+                    <a href="#/admin/invoice/service" class="list-group-item">Create Installation Invoice</a>
+                    <a href="#/admin/invoice/manage" class="list-group-item">Manage Past Invoices</a>
+                    <a class="list-group-item" ng-click="logout()">Logout</a>
+                </div>
+            </div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <div class="row">
+            <div class="col-lg-9">
+                <h1>Create
+                    <small>Installation Invoice</small>
+                </h1>
+            </div>
+        </div>
+
+        <div class="row invoice">
+            <div class="col-sm-9">
+            <table class="table">
+                         </table>
+          <table class="table">
+            <tr>
+              <td>
+                <div class="infos">
+                  <div><strong><input type="text" ng-model="invoice.customer_info.name" placeholder="Enter Customer Name"/></strong></div>
+                  <div><input type="text" ng-model="invoice.customer_info.address" placeholder="Enter Customer Address"/></div>
+                  <div><input type="text" ng-model="invoice.customer_info.city" placeholder="Enter City"/></div>
+                  <div><input type="text" ng-model="invoice.customer_info.state" placeholder="Enter State"/></div>
+                  <div><input type="text" ng-model="invoice.customer_info.postal" placeholder="Customer Postal"/></div>
+                  <div><input type="text" ng-model="invoice.customer_info.phone" placeholder="Customer Phone"/></div>
+                  <div><input type="text" ng-model="invoice.customer_info.email" placeholder="Customer Email"/></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-striped" align="center" >
+                             <tr>
+               </tr>
+                <tr>
+              </tr>
+              <tr colspan="10" >
+                  <td style="padding-right:60px;">Brand</td>
+                  <td><input ng-model="invoice.brand.ac"  size="15"  ng:required  placeholder="A/C"></td>
+                  <td><input ng-model="invoice.brand.coil"  size="15"  ng:required  placeholder="Coil"></td>
+                  <td><input ng-model="invoice.brand.furnace"  size="15"  ng:required  placeholder="Furnace"></td>
+              </tr>
+              <tr colspan="10" >
+                  <td style="padding-right:60px;">Model</td>
+                  <td><input ng-model="invoice.model.ac"  size="15"  ng:required  placeholder="A/C"></td>
+                  <td><input ng-model="invoice.model.coil"  size="15"  ng:required  placeholder="Coil"></td>
+                  <td><input ng-model="invoice.model.furnace"  size="15"  ng:required  placeholder="Furnace"></td>
+              </tr>
+              <tr colspan="10" >
+                  <td style="padding-right:60px;">Rating</td>
+                  <td><input ng-model="invoice.rating.ac"  size="15"  ng:required  placeholder="A/C"></td>
+                  <td><input ng-model="invoice.rating.coil"  size="15"  ng:required  placeholder="Coil"></td>
+                  <td><input ng-model="invoice.rating.furnace"  size="15"  ng:required  placeholder="Furnace"></td>
+              </tr>
+              
+
+  
+          </table>
+          <table class="table table-striped" align="center" >
+                <tr>
+                  <td align="center"  colspan="10">
+                    Accessories (Up to 6)
+                  </td>
+                </tr>
+              <tr>
+                  <th></th>
+                  <th>Accessory</th>
+                  <th></th>
+                  
+              </tr>
+              <tr ng-repeat="unit in invoice.accs track by $index" colspan="10" >
+                  <td><a href ng-hide="printMode" ng-click="removeAccessory(unit)" class="btn btn-danger">X</a></td>
+                  <td><input ng-model="unit.desc" size="20" ng:required placeholder="Description"></td>
+                  <td></td>
+                  
+              </tr>
+             <tr>
+          </table>
+                 <a class="btn btn-primary" ng-click="addAccessory()">Add Accessory</a>
+          <table class="table">
+            <tr>
+              <td>
+                <div class="infos">
+                  <textarea ng-model="invoice.scopeofwork" placeholder="Scope Of Work" style="border-color: #DDDDDD;" name="paragraph_text" cols="78" rows="10"></textarea>
+                  <textarea ng-model="invoice.notes" placeholder="Notes" style="border-color: #DDDDDD;" name="paragraph_text" cols="78" rows="5"></textarea>
+                  <div><input type="text" ng-model="invoice.total_installed_price" style="width:500px" placeholder="Total Installation Price"/></div>
+                  <div><input type="text" ng-model="invoice.proposal_accepted_by" style="width:500px" placeholder="Proposal accepted by:"> </div>
+                  <div><input type="text" ng-model="invoice.proposal_accepted_by_date" style="width:500px" placeholder="Date proposal was accepted"> </div>
+                  <div><input type="text" ng-model="invoice.sales_representative" style="width:500px" placeholder="Sales Representative"/></div>
+                  <div><input type="text" ng-model="invoice.sales_representative_date" style="width:500px" placeholder="Sales Representative Date"/></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <div>
+            <a class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
+              <h4>Upload on file select</h4>
+              <button ngf-select="uploadFiles($files, $invalidFiles)" multiple
+                      accept="*/*" ngf-max-height="1000" ngf-max-size="1MB">
+                  Select Files</button>
+              <br><br>
+              Files:
+              <ul>
+                <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}}
+                  <span class="progress" ng-show="f.progress >= 0">
+                    <div style="width:{{f.progress}}%"  
+                        ng-bind="f.progress + '%'"></div>
+                  </span>
+                </li>
+                <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+                </li> 
+                 </ul>
+              {{errorMsg}}
+
+            <a  class="btn btn-primary" ng-click="submit()">Submit</a>
+          </div>
+      </div>
+        </div>
+        <!-- /.row -->
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    
+
+        <hr>
+    </div>
+    <!-- /.container -->
+
+
+
