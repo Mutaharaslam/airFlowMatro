@@ -88,6 +88,8 @@ app.controller('ServiceInvoiceController', ['$scope', '$http', 'Upload', '$timeo
 
         $scope.submit = function(){
             $scope.invoice.total_installed_price = $scope.invoice.total_installed_price.replace(/[^\d.-]/g, '');
+            // $scope.invoice.scopeofwork = $scope.invoice.scopeofwork.replace(/\n/g, '<br>\n');
+            console.log($scope.invoice.scopeofwork);
             var form = new FormData();
             angular.forEach($scope.files,function(file){
                         form.append('file',file, file.name);
@@ -164,13 +166,16 @@ app.controller('InstallationInvoiceController', ['$scope', '$http', 'apiServices
             works: ""
         };
 
-        for(var i = 0; i<2; i++){
+        for(var i = 0; i<5; i++){
           $scope.invoice.units.push({make:"", model:'', serial:""});
         }
 
         $scope.submit = function(){
             $scope.invoice.total = $scope.invoice.total.replace(/[^\d.-]/g, '');
+            // $scope.invoice.scopeofwork = $scope.invoice.scopeofwork.replace(/\n/g, '<br>\n');
+            console.log($scope.invoice.scopeofwork);
             var form = new FormData();
+            console.log(form);
             angular.forEach($scope.files,function(file){
                         form.append('file',file, file.name);
             });
@@ -213,7 +218,7 @@ app.controller('InstallationInvoiceController', ['$scope', '$http', 'apiServices
         };
 
 
-        for(var i = 0; i<2; i++){
+        for(var i = 0; i<5; i++){
           $scope.invoice.units.push({make:"", model:'', serial:""});
         }
         }}

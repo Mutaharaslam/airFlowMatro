@@ -61,3 +61,16 @@
   position: relative;
   color: #ce0c15;
 }
+
+textarea{
+  white-space: pre-wrap !important; 
+}
+
+.list-group .list-group-item{
+  color: #404040;
+  
+}
+
+.list-group .list-group-item:hover{
+  background-color: #ddd;
+}
