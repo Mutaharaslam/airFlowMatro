@@ -23,6 +23,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/admin/invoice/service", {templateUrl: "partials/serviceinvoice.html", controller: "ServiceInvoiceController"})
     .when("/admin/invoice/manage", {templateUrl: "partials/reviewinvoice.html", controller: "ManageInvoiceController"})
     .when("/admin/invoice/installation", {templateUrl: "partials/installinvoice.html", controller: "InstallationInvoiceController"})
+    .when("/admin/invoice/contract", {templateUrl: "partials/contract.html", controller: "ContractController"})
     .when("/admin/reviews", {templateUrl: "partials/managereview.html", controller: "AdminController"})
 
     //MISC

@@ -11,7 +11,7 @@
   <!-- /.row -->
 
   <!-- Content Row -->
-  <div class="row">
+  <div class="row mt-5">
     <!-- Sidebar Column -->
     <div class="col-md-3">
       <div class="list-group">
@@ -19,11 +19,12 @@
         <a href="#/admin/invoice/installation" class="list-group-item">Create Service Invoice</a>
         <a href="#/admin/invoice/service" class="list-group-item">Create Installation Invoice</a>
         <a href="#/admin/invoice/manage" class="list-group-item">Manage Past Invoices</a>
+        <a href="#/admin/invoice/contract" class="list-group-item">contract</a>
         <a class="list-group-item" ng-click="logout()">Logout</a>
       </div>
     </div>
     <!-- Content Column -->
-    <div class="col-12">
+    <div class="col-md-9">
       <div class="row">
         <div class="col-lg-9">
           <h1>Create
@@ -105,10 +106,10 @@
             </tr>
             <tr>
           </table>
-          <a class="btn btn-primary" ng-click="addAccessory()">Add Accessory</a>
+          <button class="btn btn-primary" ng-click="addAccessory()">Add Accessory</button>
           <table class="table">
             <tr>
-              <td>
+              <td class="p-0 pt-3">
                 <div class="infos">
                   <textarea  class="form-control" ng-model="invoice.scopeofwork" placeholder="Scope Of Work" style="border-color: #DDDDDD;"
                     name="paragraph_text" cols="78" rows="10"></textarea>
@@ -129,7 +130,7 @@
             </tr>
           </table>
           <div>
-            <a class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
+            <button class="btn btn-primary" ng-click="clearLocalStorage()">Reset</button>
             <h4>Upload on file select</h4>
             <button class="btn btn-default" ngf-select="uploadFiles($files, $invalidFiles)" multiple accept="*/*" ngf-max-height="1000"
               ngf-max-size="1MB">
@@ -148,7 +149,7 @@
             </ul>
             {{errorMsg}}
 
-            <a class="btn btn-primary" ng-click="submit()">Submit</a>
+            <button class="btn btn-primary" ng-click="submit()">Submit</button>
           </div>
         </div>
       </div>
