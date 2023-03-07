@@ -19,7 +19,7 @@
         <a href="#/admin/invoice/installation" class="list-group-item">Create Service Invoice</a>
         <a href="#/admin/invoice/service" class="list-group-item">Create Installation Invoice</a>
         <a href="#/admin/invoice/manage" class="list-group-item">Manage Past Invoices</a>
-        <a href="#/admin/invoice/contract" class="list-group-item">contract</a>
+        <a href="#/admin/invoice/contract" class="list-group-item">Contract</a>
         <a class="list-group-item" ng-click="logout()">Logout</a>
       </div>
     </div>
@@ -99,7 +99,7 @@
 
             </tr>
             <tr ng-repeat="unit in invoice.accs track by $index" colspan="10">
-              <td><a href ng-hide="printMode" ng-click="removeAccessory(unit)" class="btn btn-danger">X</a></td>
+              <td><a href ng-hide="printMode" ng-click="removeAccessory(unit)" class="btn btn-danger">✕</a></td>
               <td><input  class="form-control" ng-model="unit.desc" size="20" ng:required placeholder="Description"></td>
               <td></td>
 
